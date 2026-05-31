@@ -1,0 +1,14 @@
+codebase:
+  src_dir: services            # broadest set of SDK service modules
+  file_ext: .java
+  test_dir: ""                 # most modules carry their own src/test/java; let inference handle it
+  language: java
+
+bot:
+  name: shadow
+  escalate_label: needs-human
+
+models:
+  investigator: us.anthropic.claude-opus-4-7
+  critic: us.anthropic.claude-opus-4-7
+  reporter: us.anthropic.claude-haiku-4-5-20251001-v1:0
