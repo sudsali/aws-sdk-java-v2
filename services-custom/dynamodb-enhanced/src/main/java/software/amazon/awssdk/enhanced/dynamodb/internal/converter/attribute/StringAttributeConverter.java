@@ -128,14 +128,8 @@ public final class StringAttributeConverter implements AttributeConverter<String
             };
 
             return value.entrySet().stream()
-                        .collect(Collectors.toMap(
-                            Map.Entry::getKey,
-                            i -> {
-                                String converted = toString(i.getValue());
-                                return converted == null ? "null" : converted;
-                            },
-                            throwingMerger,
-                            LinkedHashMap::new))
+                        .collect(Collectors.toMap(Map.Entry::getKey, i -> toString(i.getValue()),
+                                                  throwingMerger, LinkedHashMap::new))
                         .toString();
         }
 
